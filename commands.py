@@ -1,12 +1,40 @@
+import string
 class Commands():
     def __init__(self):
-        ...
-    def save(self):
-        ...
-    def load(self):
-        ...
+        self.forupdate = []
+    
     def update(self):
-        ...
+        while True:
+                try:
+                    lis = []
+                    with open("loadsave.txt", "r") as textfile:
+                        for person in textfile:
+                            str_char = person.split(",")
+                            name = str_char[0]
+                            lis.append(name)
+                    
+                    #targeting the contact to update
+                    name_toupdate = input("\n👥 Next, Enter the name and surname of the person you want to update the details for: ").title()  
+                    print("*" * 25)
+                             
+                    if name_toupdate in lis: 
+                            contact_name = input("\n👥 First, Enter the updated name and surname: ").title()
+                            contact_adress = input("\n👥 Next, Enter the updated place they live: ").title()
+                            contact_number = input("\n👥 Next, Enter the updated number: ").title() 
+                            if len(contact_number) != 0 and len(contact_adress) != 0 and contact_name.isnumeric():    
+                                with open("loadsave.txt", "r") as textfile:
+                                    for person_details in textfile:
+                                        target_man = name_toupdate
+                                        if target_man in person_details:
+                                            with open("my_file.txt", "a") as f:
+                                                f.write(f"\n{contact_name},{contact_adress},{contact_number}") 
+                                                print("Contact has been Updated!")  
+                            break  
+                    else:
+                         raise ValueError
+                except ValueError:
+                     print("The person you are looking for does not exist")
+                     continue
     def delete(self):
          while True:
                 try:
@@ -80,14 +108,14 @@ class Commands():
                                     if target_man in person_details:
                                          spl_char1 = person_details.split(",")                         
                                 print(f"\nContact Found! \nYour Contacts name is: {spl_char1[0]}\nTheir Adress is: {spl_char1[1]} \nNo: {spl_char1[2]}")                           
-                            
+                                
                             break
                     else:
                          raise ValueError
                 except ValueError:
                      print(f"{name_tosearch} does not exist as a contact!")
                      continue
-        ...
+        
     def display_commands(self):
-        print("SAVE:...."+"\n"+"LOAD:...."+"\n"+"UPDATE:...."+"\n"+
+        print(+"UPDATE:...."+"\n"+
               "DELETE:...."+"\n"+"ADD:...."+"\n"+"SEARCH:....")

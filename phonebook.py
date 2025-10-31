@@ -19,10 +19,6 @@ def main():
                 com.add()
             if user_input == "delete":
                 com.delete()
-            if user_input == "load":
-                com.load()
-            if user_input == "save":
-                com.save
             if user_input == "update":
                 com.update()
             if user_input == "search":

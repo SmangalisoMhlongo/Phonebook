@@ -1,4 +1,5 @@
 from commands import Commands
+import sys
 
 def main():
     com = Commands()
@@ -23,6 +24,8 @@ def main():
                 com.update()
             if user_input == "search":
                 com.search()
+            if user_input == "exit":
+                sys.exit()
 
         except Exception:
             print("Enter the right command.")

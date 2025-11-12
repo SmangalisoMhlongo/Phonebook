@@ -117,5 +117,8 @@ class Commands():
                      continue
         
     def display_commands(self):
-        print(+"UPDATE:...."+"\n"+
-              "DELETE:...."+"\n"+"ADD:...."+"\n"+"SEARCH:....")
+        print(+"✏️UPDATE: For when you want to update an existing contact."+"\n"+
+              "❌DELETE: For when you want to delete a contact"+"\n"+
+              "➕ADD: When you want to add a new contact."+"\n"+
+              "🔍SEARCH: For when you want to search for a contact via their name and surname."+"\n"+
+              "Exit")
